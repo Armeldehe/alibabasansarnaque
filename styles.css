@@ -1073,19 +1073,27 @@ ul {
   color: var(--white);
 }
 
-.service-card .service-icon {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.service-card h3 {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: 800;
+.service-card .service-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   margin-bottom: 14px;
 }
 
-.service-card.transit h3 {
+.service-card .service-title-row .service-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.service-card .service-title-row h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.service-card.transit .service-title-row h3 {
   font-size: 1.8rem;
 }
 
@@ -2471,11 +2479,11 @@ ul {
     padding: 32px 24px;
   }
 
-  .service-card h3 {
+  .service-card .service-title-row h3 {
     font-size: 1.4rem;
   }
 
-  .service-card.transit h3 {
+  .service-card.transit .service-title-row h3 {
     font-size: 1.5rem;
   }
 
