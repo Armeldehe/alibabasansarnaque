@@ -2,24 +2,37 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="description" content="Alibaba Sans Arnaque CI - Apprenez à acheter sur Alibaba en toute sécurité et recevez vos marchandises de Chine à Abidjan. Formation + Transit sécurisé.">
   <meta name="keywords" content="Alibaba, Côte d'Ivoire, import Chine, transit, formation, Abidjan, commerce">
   <meta name="author" content="Alibaba Sans Arnaque CI">
+  <meta name="theme-color" content="#0F1A45">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Alibaba Sans Arnaque CI — Achetez en Chine, Recevez à Abidjan</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Progression de la page"></div>
+
   <!-- ========== NAVBAR ========== -->
-  <nav class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
     <div class="container">
-      <a href="#" class="navbar-brand">
+      <a href="#" class="navbar-brand" aria-label="Alibaba Sans Arnaque CI - Accueil">
         <img src="images/logo.png" alt="Alibaba Sans Arnaque CI" class="brand-logo">
       </a>
 
@@ -33,7 +46,7 @@
 
       <div class="navbar-cta">
         <a href="#inscription" class="btn btn-primary btn-sm">S'inscrire</a>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Ouvrir le menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -44,8 +57,8 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-overlay" id="mobileOverlay"></div>
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu de navigation">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Fermer le menu">✕</button>
     <div class="mobile-menu-links">
       <a href="#services">📦 Services</a>
       <a href="#formation">🎓 Formation</a>
@@ -58,12 +71,12 @@
   </div>
 
   <!-- ========== HERO SECTION ========== -->
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" aria-label="Bannière principale">
     <div class="hero-particles" id="heroParticles"></div>
     <div class="container">
-      <div class="hero-content">
+      <div class="hero-content" id="main-content">
         <div class="hero-badge">
-          <span class="pulse-dot"></span>
+          <span class="pulse-dot" aria-hidden="true"></span>
           Inscriptions ouvertes 2026
         </div>
         <h1>
@@ -75,24 +88,24 @@
           livraison Chine → Côte d'Ivoire. Simple, rapide et fiable.
         </p>
         <div class="hero-buttons">
-          <a href="#inscription" class="btn btn-primary btn-lg" id="heroCtaBtn">
+          <a href="#inscription" class="btn btn-primary btn-lg ripple" id="heroCtaBtn">
             🚀 S'inscrire maintenant
           </a>
-          <a href="#services" class="btn btn-secondary btn-lg">
+          <a href="#services" class="btn btn-secondary btn-lg ripple">
             En savoir plus
           </a>
         </div>
-        <div class="hero-stats">
+        <div class="hero-stats" role="group" aria-label="Statistiques">
           <div class="hero-stat">
-            <div class="hero-stat-number" id="statStudents">500+</div>
+            <div class="hero-stat-number" id="statStudents" aria-label="Plus de 500 élèves formés">500+</div>
             <div class="hero-stat-label">Élèves formés</div>
           </div>
           <div class="hero-stat">
-            <div class="hero-stat-number" id="statDeliveries">1 200+</div>
+            <div class="hero-stat-number" id="statDeliveries" aria-label="Plus de 1200 colis livrés">1 200+</div>
             <div class="hero-stat-label">Colis livrés</div>
           </div>
           <div class="hero-stat">
-            <div class="hero-stat-number" id="statSatisfaction">98%</div>
+            <div class="hero-stat-number" id="statSatisfaction" aria-label="98% de satisfaction">98%</div>
             <div class="hero-stat-label">Satisfaction</div>
           </div>
         </div>
@@ -100,54 +113,44 @@
 
       <div class="hero-image">
         <img src="images/hero-banner.png" alt="Alibaba Sans Arnaque CI - Acheter en Chine et recevoir à Abidjan" loading="eager">
-        <!-- <div class="floating-card card-1">
-          <div class="floating-card-icon green">✅</div>
-          <div class="floating-card-title">Livraison sécurisée</div>
-          <div class="floating-card-text">Chine → Abidjan</div>
-        </div>
-        <div class="floating-card card-2">
-          <div class="floating-card-icon orange">🎓</div>
-          <div class="floating-card-title">Formation complète</div>
-          <div class="floating-card-text">Accessible à tous</div>
-        </div>
-      </div> -->
+      </div>
     </div>
     <br>
 
-    <div class="scroll-indicator">
+    <div class="scroll-indicator" aria-hidden="true">
       <div class="mouse"></div>
       <span>Découvrir</span>
     </div>
   </section>
 
   <!-- ========== TRUST BAR ========== -->
-  <div class="trust-bar">
+  <div class="trust-bar" role="region" aria-label="Nos garanties">
     <div class="container">
       <div class="trust-item">
-        <span class="icon">🔒</span>
+        <span class="icon" aria-hidden="true">🔒</span>
         <span>Paiement sécurisé</span>
       </div>
       <div class="trust-item">
-        <span class="icon">✅</span>
+        <span class="icon" aria-hidden="true">✅</span>
         <span>Fournisseurs vérifiés</span>
       </div>
       <div class="trust-item">
-        <span class="icon">📦</span>
+        <span class="icon" aria-hidden="true">📦</span>
         <span>Transit rapide</span>
       </div>
       <div class="trust-item">
-        <span class="icon">💬</span>
+        <span class="icon" aria-hidden="true">💬</span>
         <span>Support WhatsApp 7j/7</span>
       </div>
       <div class="trust-item">
-        <span class="icon">🇨🇮</span>
+        <span class="icon" aria-hidden="true">🇨🇮</span>
         <span>Basé en Côte d'Ivoire</span>
       </div>
     </div>
   </div>
 
   <!-- ========== SECTION PROBLÈME ========== -->
-  <section class="problems" id="problemes">
+  <section class="problems" id="problemes" aria-label="Les problèmes que nous résolvons">
     <div class="container">
       <div class="text-center">
         <span class="section-tag">😰 Le problème</span>
@@ -159,17 +162,17 @@
 
       <div class="problems-grid">
         <div class="problem-card reveal">
-          <div class="problem-icon">😱</div>
+          <div class="problem-icon" aria-hidden="true">😱</div>
           <h3>Peur de l'arnaque</h3>
           <p>Tu veux acheter sur Alibaba mais tu as peur de te faire arnaquer par un faux fournisseur. Tu ne sais pas comment vérifier si le vendeur est fiable.</p>
         </div>
         <div class="problem-card reveal">
-          <div class="problem-icon">🤷</div>
+          <div class="problem-icon" aria-hidden="true">🤷</div>
           <h3>Pas de fournisseur fiable</h3>
           <p>Tu ne sais pas comment trouver un bon fournisseur en Chine, comment négocier les prix, ni quels produits choisir pour ton business.</p>
         </div>
         <div class="problem-card reveal">
-          <div class="problem-icon">📦</div>
+          <div class="problem-icon" aria-hidden="true">📦</div>
           <h3>Transport impossible</h3>
           <p>Même si tu trouves le bon produit, tu ne sais pas comment le faire venir de Chine jusqu'à Abidjan. Le transit te semble compliqué et risqué.</p>
         </div>
@@ -178,7 +181,7 @@
   </section>
 
   <!-- ========== SECTION SOLUTION ========== -->
-  <section class="solution" id="solution">
+  <section class="solution" id="solution" aria-label="Notre solution">
     <div class="container">
       <div class="text-center">
         <span class="section-tag">💡 La solution</span>
@@ -189,35 +192,35 @@
       </div>
 
       <div class="solution-content">
-        <div class="solution-text reveal">
+        <div class="solution-text reveal-left">
           <h3>Une solution complète pour acheter en Chine sans stress</h3>
           <p>
             Nous t'accompagnons à chaque étape : tu apprends à trouver les bons produits, à négocier avec les fournisseurs, et nous nous chargeons de te livrer tes marchandises directement à Abidjan.
           </p>
           <div class="solution-features">
             <div class="solution-feature">
-              <div class="check">✓</div>
+              <div class="check" aria-hidden="true">✓</div>
               <span>Formation complète pour acheter sans arnaque</span>
             </div>
             <div class="solution-feature">
-              <div class="check">✓</div>
+              <div class="check" aria-hidden="true">✓</div>
               <span>Accompagnement personnalisé à chaque étape</span>
             </div>
             <div class="solution-feature">
-              <div class="check">✓</div>
+              <div class="check" aria-hidden="true">✓</div>
               <span>Transit sécurisé Chine → Abidjan</span>
             </div>
             <div class="solution-feature">
-              <div class="check">✓</div>
+              <div class="check" aria-hidden="true">✓</div>
               <span>Support WhatsApp disponible 7j/7</span>
             </div>
           </div>
-          <a href="#inscription" class="btn btn-primary">
+          <a href="#inscription" class="btn btn-primary ripple">
             🚀 Je veux commencer
           </a>
         </div>
 
-        <div class="solution-image reveal">
+        <div class="solution-image reveal-right">
           <img src="images/formation.png" alt="Formation Alibaba Sans Arnaque CI" loading="lazy">
         </div>
       </div>
@@ -225,7 +228,7 @@
   </section>
 
   <!-- ========== SECTION SERVICES ========== -->
-  <section class="services" id="services">
+  <section class="services" id="services" aria-label="Nos services">
     <div class="container">
       <div class="text-center">
         <span class="section-tag">🎯 Nos services</span>
@@ -239,30 +242,30 @@
         <!-- SERVICE 1: Formation -->
         <div class="service-card formation reveal">
           <span class="service-badge">Service 1</span>
-          <div class="service-icon">🎓</div>
+          <div class="service-icon" aria-hidden="true">🎓</div>
           <h3>Formation Alibaba</h3>
           <p>
             Apprends à acheter en toute sécurité sur Alibaba, même si tu n'as jamais acheté en ligne. Notre formation est faite pour les débutants complets.
           </p>
           <div class="service-highlights">
             <div class="service-highlight">
-              <span class="icon">📹</span>
+              <span class="icon" aria-hidden="true">📹</span>
               <span>Vidéos simples et claires</span>
             </div>
             <div class="service-highlight">
-              <span class="icon">📝</span>
+              <span class="icon" aria-hidden="true">📝</span>
               <span>Exercices pratiques</span>
             </div>
             <div class="service-highlight">
-              <span class="icon">💬</span>
+              <span class="icon" aria-hidden="true">💬</span>
               <span>Groupe WhatsApp privé</span>
             </div>
             <div class="service-highlight">
-              <span class="icon">🤝</span>
+              <span class="icon" aria-hidden="true">🤝</span>
               <span>Accompagnement individuel</span>
             </div>
           </div>
-          <a href="#inscription" class="btn btn-primary">
+          <a href="#inscription" class="btn btn-primary ripple">
             Je veux me former →
           </a>
         </div>
@@ -271,38 +274,38 @@
         <div class="service-card transit reveal">
           <span class="star-badge">⭐ Service phare</span>
           <span class="service-badge">Service 2</span>
-          <div class="service-icon">🚢</div>
+          <div class="service-icon" aria-hidden="true">🚢</div>
           <h3>Transit Chine → Abidjan</h3>
           <p>
             Tu as acheté tes produits en Chine ? Nous nous occupons de tout le transport jusqu'à Abidjan. Rapide, sécurisé et en toute transparence.
           </p>
           <div class="service-highlights">
             <div class="service-highlight">
-              <span class="icon">⚡</span>
+              <span class="icon" aria-hidden="true">⚡</span>
               <span>Livraison rapide (7-60 jours)</span>
             </div>
             <div class="service-highlight">
-              <span class="icon">🔒</span>
+              <span class="icon" aria-hidden="true">🔒</span>
               <span>Marchandises 100% sécurisées</span>
             </div>
             <div class="service-highlight">
-              <span class="icon">📍</span>
+              <span class="icon" aria-hidden="true">📍</span>
               <span>Suivi en temps réel</span>
             </div>
             <div class="service-highlight">
-              <span class="icon">💰</span>
+              <span class="icon" aria-hidden="true">💰</span>
               <span>Tarifs compétitifs et transparents</span>
             </div>
             <div class="service-highlight">
-              <span class="icon">🤝</span>
+              <span class="icon" aria-hidden="true">🤝</span>
               <span>Dédouanement inclus</span>
             </div>
             <div class="service-highlight">
-              <span class="icon">📞</span>
+              <span class="icon" aria-hidden="true">📞</span>
               <span>Un interlocuteur dédié</span>
             </div>
           </div>
-          <a href="#inscription" class="btn btn-lg">
+          <a href="#inscription" class="btn btn-lg ripple">
             🚢 Envoyer mes marchandises →
           </a>
         </div>
@@ -311,7 +314,7 @@
   </section>
 
   <!-- ========== COMMENT ÇA MARCHE ========== -->
-  <section class="process" id="process">
+  <section class="process" id="process" aria-label="Comment ça marche">
     <div class="container">
       <div class="text-center">
         <span class="section-tag">⚡ Simple comme bonjour</span>
@@ -324,34 +327,42 @@
       <div class="process-steps">
         <div class="process-step reveal">
           <div class="step-number">1</div>
-          <div class="step-icon">🎓</div>
-          <h4>Tu te formes avec nous</h4>
-          <p>Suis notre formation pour apprendre à acheter en toute sécurité sur Alibaba.</p>
+          <div>
+            <div class="step-icon" aria-hidden="true">🎓</div>
+            <h4>Tu te formes avec nous</h4>
+            <p>Suis notre formation pour apprendre à acheter en toute sécurité sur Alibaba.</p>
+          </div>
         </div>
         <div class="process-step reveal">
           <div class="step-number">2</div>
-          <div class="step-icon">🛒</div>
-          <h4>Tu achètes ton produit</h4>
-          <p>Grâce à nos techniques, tu trouves et commandes tes produits chez les bons fournisseurs.</p>
+          <div>
+            <div class="step-icon" aria-hidden="true">🛒</div>
+            <h4>Tu achètes ton produit</h4>
+            <p>Grâce à nos techniques, tu trouves et commandes tes produits chez les bons fournisseurs.</p>
+          </div>
         </div>
         <div class="process-step reveal">
           <div class="step-number">3</div>
-          <div class="step-icon">🚢</div>
-          <h4>On gère le transport</h4>
-          <p>Nous nous occupons de tout : emballage, expédition, dédouanement et livraison.</p>
+          <div>
+            <div class="step-icon" aria-hidden="true">🚢</div>
+            <h4>On gère le transport</h4>
+            <p>Nous nous occupons de tout : emballage, expédition, dédouanement et livraison.</p>
+          </div>
         </div>
         <div class="process-step reveal">
           <div class="step-number">4</div>
-          <div class="step-icon">🎉</div>
-          <h4>Tu reçois ta marchandise</h4>
-          <p>Tes produits arrivent à Abidjan en toute sécurité. Tu peux lancer ton business !</p>
+          <div>
+            <div class="step-icon" aria-hidden="true">🎉</div>
+            <h4>Tu reçois ta marchandise</h4>
+            <p>Tes produits arrivent à Abidjan en toute sécurité. Tu peux lancer ton business !</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========== CONTENU DE LA FORMATION ========== -->
-  <section class="formation-content" id="formation">
+  <section class="formation-content" id="formation" aria-label="Contenu de la formation">
     <div class="container">
       <div class="text-center">
         <span class="section-tag">🎓 La formation</span>
@@ -436,19 +447,19 @@
 
       <div class="formation-extras reveal">
         <div class="formation-extra">
-          <span class="icon">📹</span>
+          <span class="icon" aria-hidden="true">📹</span>
           <span>Vidéos pratiques</span>
         </div>
         <div class="formation-extra">
-          <span class="icon">📝</span>
+          <span class="icon" aria-hidden="true">📝</span>
           <span>Exercices concrets</span>
         </div>
         <div class="formation-extra">
-          <span class="icon">💬</span>
+          <span class="icon" aria-hidden="true">💬</span>
           <span>Groupe WhatsApp</span>
         </div>
         <div class="formation-extra">
-          <span class="icon">🎧</span>
+          <span class="icon" aria-hidden="true">🎧</span>
           <span>Support personnalisé</span>
         </div>
       </div>
@@ -456,7 +467,7 @@
   </section>
 
   <!-- ========== AVANTAGES ========== -->
-  <section class="advantages" id="avantages">
+  <section class="advantages" id="avantages" aria-label="Nos avantages">
     <div class="container">
       <div class="text-center">
         <span class="section-tag">🏆 Tes avantages</span>
@@ -468,31 +479,39 @@
 
       <div class="advantages-grid">
         <div class="advantage-card reveal">
-          <div class="advantage-icon">👨‍👩‍👧‍👦</div>
-          <h4>Accessible à tous</h4>
-          <p>Même si tu n'as jamais utilisé internet pour acheter, notre formation est faite pour toi.</p>
+          <div class="advantage-icon" aria-hidden="true">👨‍👩‍👧‍👦</div>
+          <div>
+            <h4>Accessible à tous</h4>
+            <p>Même si tu n'as jamais utilisé internet pour acheter, notre formation est faite pour toi.</p>
+          </div>
         </div>
         <div class="advantage-card reveal">
-          <div class="advantage-icon">💬</div>
-          <h4>Support WhatsApp 7j/7</h4>
-          <p>Une question ? Un doute ? Notre équipe est disponible tous les jours sur WhatsApp pour t'aider.</p>
+          <div class="advantage-icon" aria-hidden="true">💬</div>
+          <div>
+            <h4>Support WhatsApp 7j/7</h4>
+            <p>Une question ? Un doute ? Notre équipe est disponible tous les jours sur WhatsApp pour t'aider.</p>
+          </div>
         </div>
         <div class="advantage-card reveal">
-          <div class="advantage-icon">⏰</div>
-          <h4>Gain de temps énorme</h4>
-          <p>Plus besoin de chercher pendant des heures. On te montre directement les bonnes méthodes.</p>
+          <div class="advantage-icon" aria-hidden="true">⏰</div>
+          <div>
+            <h4>Gain de temps énorme</h4>
+            <p>Plus besoin de chercher pendant des heures. On te montre directement les bonnes méthodes.</p>
+          </div>
         </div>
         <div class="advantage-card reveal">
-          <div class="advantage-icon">💰</div>
-          <h4>Évite les pertes d'argent</h4>
-          <p>Plus d'arnaque, plus de mauvais fournisseur. Tu achètes en sécurité et tu économises.</p>
+          <div class="advantage-icon" aria-hidden="true">💰</div>
+          <div>
+            <h4>Évite les pertes d'argent</h4>
+            <p>Plus d'arnaque, plus de mauvais fournisseur. Tu achètes en sécurité et tu économises.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========== POURQUOI NOUS FAIRE CONFIANCE ========== -->
-  <section class="trust" id="confiance">
+  <section class="trust" id="confiance" aria-label="Pourquoi nous faire confiance">
     <div class="container">
       <div class="text-center">
         <span class="section-tag">🤝 Confiance</span>
@@ -504,26 +523,32 @@
 
       <div class="trust-grid">
         <div class="trust-card reveal">
-          <div class="trust-card-icon">🔒</div>
-          <h4>Sécurité maximale</h4>
-          <p>Tes marchandises sont assurées et suivies tout au long du trajet de la Chine jusqu'à Abidjan.</p>
+          <div class="trust-card-icon" aria-hidden="true">🔒</div>
+          <div>
+            <h4>Sécurité maximale</h4>
+            <p>Tes marchandises sont assurées et suivies tout au long du trajet de la Chine jusqu'à Abidjan.</p>
+          </div>
         </div>
         <div class="trust-card reveal">
-          <div class="trust-card-icon">🤝</div>
-          <h4>Accompagnement de A à Z</h4>
-          <p>Du choix du produit à la réception à Abidjan, on t'accompagne à chaque étape. Tu n'es jamais seul.</p>
+          <div class="trust-card-icon" aria-hidden="true">🤝</div>
+          <div>
+            <h4>Accompagnement de A à Z</h4>
+            <p>Du choix du produit à la réception à Abidjan, on t'accompagne à chaque étape. Tu n'es jamais seul.</p>
+          </div>
         </div>
         <div class="trust-card reveal">
-          <div class="trust-card-icon">⭐</div>
-          <h4>Résultats prouvés</h4>
-          <p>Plus de 500 personnes formées et 1 200 colis livrés avec succès. Nos résultats parlent pour nous.</p>
+          <div class="trust-card-icon" aria-hidden="true">⭐</div>
+          <div>
+            <h4>Résultats prouvés</h4>
+            <p>Plus de 500 personnes formées et 1 200 colis livrés avec succès. Nos résultats parlent pour nous.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========== TÉMOIGNAGES ========== -->
-  <section class="testimonials" id="temoignages">
+  <section class="testimonials" id="temoignages" aria-label="Témoignages de nos clients">
     <div class="container">
       <div class="text-center">
         <span class="section-tag">💬 Témoignages</span>
@@ -533,15 +558,15 @@
         </p>
       </div>
 
-      <div class="testimonials-grid">
+      <div class="testimonials-grid" id="testimonialsGrid">
         <div class="testimonial-card reveal">
-          <span class="testimonial-quote">"</span>
-          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <span class="testimonial-quote" aria-hidden="true">"</span>
+          <div class="testimonial-stars" aria-label="5 étoiles sur 5">⭐⭐⭐⭐⭐</div>
           <p class="testimonial-text">
             J'avais peur d'acheter sur Alibaba parce que j'avais entendu beaucoup d'histoires d'arnaque. Grâce à Alibaba Sans Arnaque CI, j'ai reçu mes premiers produits en moins d'un mois. Simple et efficace !
           </p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">AK</div>
+            <div class="testimonial-avatar" aria-hidden="true">AK</div>
             <div class="testimonial-info">
               <div class="name">Aminata K.</div>
               <div class="role">Commerçante — Abidjan</div>
@@ -550,13 +575,13 @@
         </div>
 
         <div class="testimonial-card reveal">
-          <span class="testimonial-quote">"</span>
-          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <span class="testimonial-quote" aria-hidden="true">"</span>
+          <div class="testimonial-stars" aria-label="5 étoiles sur 5">⭐⭐⭐⭐⭐</div>
           <p class="testimonial-text">
             Le service de transit est incroyable ! J'ai commandé 200 kg de marchandises et tout est arrivé intact à Abidjan. Le suivi WhatsApp m'a vraiment rassuré tout au long du processus.
           </p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">KS</div>
+            <div class="testimonial-avatar" aria-hidden="true">KS</div>
             <div class="testimonial-info">
               <div class="name">Kouassi S.</div>
               <div class="role">Entrepreneur — Bouaké</div>
@@ -565,13 +590,13 @@
         </div>
 
         <div class="testimonial-card reveal">
-          <span class="testimonial-quote">"</span>
-          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <span class="testimonial-quote" aria-hidden="true">"</span>
+          <div class="testimonial-stars" aria-label="5 étoiles sur 5">⭐⭐⭐⭐⭐</div>
           <p class="testimonial-text">
             Je suis maman au foyer et je ne connaissais rien à internet. La formation était tellement simple que j'ai compris tout de suite. Aujourd'hui, je vends des produits achetés en Chine !
           </p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">FT</div>
+            <div class="testimonial-avatar" aria-hidden="true">FT</div>
             <div class="testimonial-info">
               <div class="name">Fatou T.</div>
               <div class="role">Mère au foyer — Yopougon</div>
@@ -579,11 +604,18 @@
           </div>
         </div>
       </div>
+
+      <!-- Carousel dots for mobile -->
+      <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Sélectionner un témoignage">
+        <button class="carousel-dot active" aria-label="Témoignage 1" aria-selected="true" role="tab"></button>
+        <button class="carousel-dot" aria-label="Témoignage 2" aria-selected="false" role="tab"></button>
+        <button class="carousel-dot" aria-label="Témoignage 3" aria-selected="false" role="tab"></button>
+      </div>
     </div>
   </section>
 
   <!-- ========== TARIFS ========== -->
-  <section class="pricing" id="pricing">
+  <section class="pricing" id="pricing" aria-label="Nos tarifs">
     <div class="container">
       <div class="text-center">
         <span class="section-tag">💰 Nos tarifs</span>
@@ -595,44 +627,44 @@
 
       <div class="pricing-cards">
         <!-- Standard -->
-        <div class="pricing-card standard reveal">
+        <div class="pricing-card standard reveal-scale">
           <h3>Formation Alibaba</h3>
           <div class="price">15 000 <small style="font-size:0.5em;font-weight:400;">FCFA</small></div>
           <div class="price-sub" style="color:var(--neutral-500);">Paiement unique — Accès à vie</div>
           <div class="pricing-divider"></div>
           <div class="pricing-features">
             <div class="pricing-feature">
-              <span class="check-icon">✅</span>
+              <span class="check-icon" aria-hidden="true">✅</span>
               <span>10 modules complets</span>
             </div>
             <div class="pricing-feature">
-              <span class="check-icon">✅</span>
+              <span class="check-icon" aria-hidden="true">✅</span>
               <span>Vidéos pratiques</span>
             </div>
             <div class="pricing-feature">
-              <span class="check-icon">✅</span>
+              <span class="check-icon" aria-hidden="true">✅</span>
               <span>Exercices concrets</span>
             </div>
             <div class="pricing-feature">
-              <span class="check-icon">✅</span>
+              <span class="check-icon" aria-hidden="true">✅</span>
               <span>Groupe WhatsApp privé</span>
             </div>
             <div class="pricing-feature">
-              <span class="check-icon">✅</span>
+              <span class="check-icon" aria-hidden="true">✅</span>
               <span>Support par WhatsApp</span>
             </div>
             <div class="pricing-feature">
-              <span class="check-icon">✅</span>
+              <span class="check-icon" aria-hidden="true">✅</span>
               <span>Stratégies de vente incluses</span>
             </div>
           </div>
-          <a href="#inscription" class="btn btn-primary" style="width:100%;">
+          <a href="#inscription" class="btn btn-primary ripple" style="width:100%;">
             Je m'inscris →
           </a>
         </div>
 
         <!-- Premium -->
-        <div class="pricing-card premium reveal">
+        <div class="pricing-card premium reveal-scale">
           <div class="pricing-popular">🔜 Bientôt</div>
           <h3>Pack Premium</h3>
           <div class="price" style="font-size:2rem;">Bientôt disponible</div>
@@ -640,25 +672,25 @@
           <div class="pricing-divider"></div>
           <div class="pricing-features">
             <div class="pricing-feature">
-              <span class="check-icon">✅</span>
+              <span class="check-icon" aria-hidden="true">✅</span>
               <span>Tout le contenu de la formation (10 modules)</span>
             </div>
             <div class="pricing-feature">
-              <span class="check-icon">✅</span>
+              <span class="check-icon" aria-hidden="true">✅</span>
               <span>Accompagnement VIP personnalisé</span>
             </div>
             <div class="pricing-feature">
-              <span class="check-icon">✅</span>
+              <span class="check-icon" aria-hidden="true">✅</span>
               <span>Avantages exclusifs supplémentaires</span>
             </div>
             <div class="pricing-feature">
-              <span class="check-icon">⏳</span>
+              <span class="check-icon" aria-hidden="true">⏳</span>
               <span>Détails à venir très bientôt...</span>
             </div>
           </div>
           <br>
           <br>
-          <a href="https://wa.me/2250701799598?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20le%20Pack%20Premium.%20Tenez-moi%20inform%C3%A9(e)%20!" target="_blank" class="btn btn-lg" style="width:100%; background:var(--white); color:var(--blue-700);">
+          <a href="https://wa.me/2250701799598?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20le%20Pack%20Premium.%20Tenez-moi%20inform%C3%A9(e)%20!" target="_blank" class="btn btn-lg ripple" style="width:100%; background:var(--white); color:var(--blue-700);">
             💬 Me tenir informé(e) →
           </a>
         </div>
@@ -667,7 +699,7 @@
   </section>
 
   <!-- ========== CTA SECTION ========== -->
-  <section class="cta-section" id="cta">
+  <section class="cta-section" id="cta" aria-label="Appel à l'action">
     <div class="container">
       <div class="cta-content">
         <h2>Prêt(e) à lancer ton business ?</h2>
@@ -675,10 +707,10 @@
           Rejoins les centaines de personnes qui achètent déjà en Chine sans arnaque et reçoivent leurs marchandises à Abidjan.
         </p>
         <div class="cta-buttons">
-          <a href="#inscription" class="btn btn-primary btn-lg">
+          <a href="#inscription" class="btn btn-primary btn-lg ripple">
             🚀 S'inscrire maintenant
           </a>
-          <a href="https://wa.me/2250701799598?text=Bonjour%2C%20je%20veux%20en%20savoir%20plus%20sur%20Alibaba%20Sans%20Arnaque%20CI" target="_blank" class="btn btn-whatsapp btn-lg">
+          <a href="https://wa.me/2250701799598?text=Bonjour%2C%20je%20veux%20en%20savoir%20plus%20sur%20Alibaba%20Sans%20Arnaque%20CI" target="_blank" class="btn btn-whatsapp btn-lg ripple">
             💬 Nous écrire sur WhatsApp
           </a>
         </div>
@@ -687,7 +719,7 @@
   </section>
 
   <!-- ========== FORMULAIRE ========== -->
-  <section class="form-section" id="inscription">
+  <section class="form-section" id="inscription" aria-label="Formulaire d'inscription">
     <div class="container">
       <div class="text-center">
         <span class="section-tag">📝 Inscription</span>
@@ -697,21 +729,30 @@
         </p>
       </div>
 
-      <div class="form-wrapper reveal">
-        <form id="inscriptionForm">
+      <div class="form-wrapper reveal-scale">
+        <!-- Step Indicator -->
+        <div class="form-steps-indicator" id="formSteps" aria-label="Progression du formulaire">
+          <div class="form-step-dot active" data-step="1">1</div>
+          <div class="form-step-line" data-line="1"></div>
+          <div class="form-step-dot" data-step="2">2</div>
+          <div class="form-step-line" data-line="2"></div>
+          <div class="form-step-dot" data-step="3">3</div>
+        </div>
+
+        <form id="inscriptionForm" novalidate>
           <div class="form-row">
             <div class="form-group">
               <label for="nom">Nom *</label>
-              <input type="text" id="nom" name="nom" placeholder="Ex: Koné" required>
+              <input type="text" id="nom" name="nom" placeholder="Ex: Koné" required autocomplete="family-name">
             </div>
             <div class="form-group">
               <label for="prenom">Prénom *</label>
-              <input type="text" id="prenom" name="prenom" placeholder="Ex: Aminata" required>
+              <input type="text" id="prenom" name="prenom" placeholder="Ex: Aminata" required autocomplete="given-name">
             </div>
           </div>
           <div class="form-group">
             <label for="whatsapp">Numéro WhatsApp *</label>
-            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ex: 07 XX XX XX XX" required>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ex: 07 XX XX XX XX" required autocomplete="tel" inputmode="tel">
           </div>
           <div class="form-group">
             <label for="ville">Ville *</label>
@@ -738,12 +779,12 @@
             </select>
           </div>
           <div class="form-submit">
-            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+            <button type="submit" class="btn btn-primary btn-lg ripple" id="submitBtn">
               ✅ Valider mon inscription
             </button>
           </div>
           <p class="form-note">
-            <span class="icon">🔒</span> Tes informations sont confidentielles. Tu seras redirigé(e) vers WhatsApp.
+            <span class="icon" aria-hidden="true">🔒</span> Tes informations sont confidentielles. Tu seras redirigé(e) vers WhatsApp.
           </p>
         </form>
       </div>
@@ -751,7 +792,7 @@
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="faq" id="faq">
+  <section class="faq" id="faq" aria-label="Questions fréquemment posées">
     <div class="container">
       <div class="text-center">
         <span class="section-tag">❓ Questions fréquentes</span>
@@ -761,73 +802,73 @@
         </p>
       </div>
 
-      <div class="faq-list">
-        <div class="faq-item" id="faq-1">
-          <div class="faq-question" onclick="toggleFaq('faq-1')">
+      <div class="faq-list" role="list">
+        <div class="faq-item" id="faq-1" role="listitem">
+          <div class="faq-question" onclick="toggleFaq('faq-1')" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-1-answer">
             <h4>Est-ce que c'est pour les débutants ?</h4>
-            <div class="faq-toggle">+</div>
+            <div class="faq-toggle" aria-hidden="true">+</div>
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-1-answer" role="region">
             <div class="faq-answer-inner">
               Oui, absolument ! Notre formation est spécialement conçue pour les personnes qui n'ont jamais acheté en ligne. On t'explique tout depuis le début, étape par étape, avec des mots simples. Même si tu ne connais rien à internet, tu vas comprendre.
             </div>
           </div>
         </div>
 
-        <div class="faq-item" id="faq-2">
-          <div class="faq-question" onclick="toggleFaq('faq-2')">
+        <div class="faq-item" id="faq-2" role="listitem">
+          <div class="faq-question" onclick="toggleFaq('faq-2')" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-2-answer">
             <h4>Comment se passe le paiement ?</h4>
-            <div class="faq-toggle">+</div>
+            <div class="faq-toggle" aria-hidden="true">+</div>
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-2-answer" role="region">
             <div class="faq-answer-inner">
               Le paiement se fait par Mobile Money (Orange, MTN, Wave) ou par virement. Après ton inscription, tu recevras les instructions de paiement directement sur WhatsApp. C'est simple et rapide !
             </div>
           </div>
         </div>
 
-        <div class="faq-item" id="faq-3">
-          <div class="faq-question" onclick="toggleFaq('faq-3')">
+        <div class="faq-item" id="faq-3" role="listitem">
+          <div class="faq-question" onclick="toggleFaq('faq-3')" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-3-answer">
             <h4>Est-ce que je vais vraiment recevoir mes produits ?</h4>
-            <div class="faq-toggle">+</div>
+            <div class="faq-toggle" aria-hidden="true">+</div>
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-3-answer" role="region">
             <div class="faq-answer-inner">
               Oui ! Nous avons déjà livré plus de 1 200 colis à Abidjan avec succès. Tes marchandises sont suivies à chaque étape et tu reçois des mises à jour régulières sur WhatsApp. Nous gérons tout le transit de la Chine jusqu'à ta porte.
             </div>
           </div>
         </div>
 
-        <div class="faq-item" id="faq-4">
-          <div class="faq-question" onclick="toggleFaq('faq-4')">
+        <div class="faq-item" id="faq-4" role="listitem">
+          <div class="faq-question" onclick="toggleFaq('faq-4')" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-4-answer">
             <h4>Combien de temps pour recevoir mes marchandises ?</h4>
-            <div class="faq-toggle">+</div>
+            <div class="faq-toggle" aria-hidden="true">+</div>
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-4-answer" role="region">
             <div class="faq-answer-inner">
               En général, le délai de livraison est de 15 à 30 jours selon le type de marchandise et le mode de transport choisi (avion ou bateau). Tu seras informé(e) du délai exact avant l'expédition.
             </div>
           </div>
         </div>
 
-        <div class="faq-item" id="faq-5">
-          <div class="faq-question" onclick="toggleFaq('faq-5')">
+        <div class="faq-item" id="faq-5" role="listitem">
+          <div class="faq-question" onclick="toggleFaq('faq-5')" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-5-answer">
             <h4>Je peux juste utiliser le service de transit sans la formation ?</h4>
-            <div class="faq-toggle">+</div>
+            <div class="faq-toggle" aria-hidden="true">+</div>
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-5-answer" role="region">
             <div class="faq-answer-inner">
               Oui, bien sûr ! Si tu sais déjà acheter sur Alibaba et que tu as besoin uniquement du transit Chine → Abidjan, tu peux utiliser notre service de transport séparément. Contacte-nous sur WhatsApp pour les tarifs.
             </div>
           </div>
         </div>
 
-        <div class="faq-item" id="faq-6">
-          <div class="faq-question" onclick="toggleFaq('faq-6')">
+        <div class="faq-item" id="faq-6" role="listitem">
+          <div class="faq-question" onclick="toggleFaq('faq-6')" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-6-answer">
             <h4>Y a-t-il une garantie ?</h4>
-            <div class="faq-toggle">+</div>
+            <div class="faq-toggle" aria-hidden="true">+</div>
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-6-answer" role="region">
             <div class="faq-answer-inner">
               Oui ! Nous garantissons la sécurité de tes marchandises pendant le transit. En cas de problème, notre équipe intervient immédiatement. Pour la formation, si tu n'es pas satisfait(e), tu peux nous contacter et nous trouverons une solution ensemble.
             </div>
@@ -838,7 +879,7 @@
   </section>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
@@ -869,10 +910,112 @@
   </footer>
 
   <!-- ========== FLOATING WHATSAPP ========== -->
-  <a href="https://wa.me/2250701799598?text=Bonjour%2C%20je%20veux%20en%20savoir%20plus%20sur%20Alibaba%20Sans%20Arnaque%20CI" target="_blank" class="whatsapp-float" id="whatsappFloat">
+  <a href="https://wa.me/2250701799598?text=Bonjour%2C%20je%20veux%20en%20savoir%20plus%20sur%20Alibaba%20Sans%20Arnaque%20CI" target="_blank" class="whatsapp-float" id="whatsappFloat" aria-label="Nous contacter sur WhatsApp">
     💬
     <span class="whatsapp-tooltip">Écris-nous sur WhatsApp !</span>
   </a>
+
+  <!-- ========== BACK TO TOP ========== -->
+  <a href="#hero" class="back-to-top" id="backToTop" aria-label="Retour en haut de la page">↑</a>
+
+  <!-- ========== MOBILE BOTTOM NAVIGATION ========== -->
+  <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Navigation rapide mobile">
+    <div class="nav-items">
+      <a href="#services" class="nav-item">
+        <span class="nav-icon" aria-hidden="true">📦</span>
+        <span>Services</span>
+      </a>
+      <a href="#formation" class="nav-item">
+        <span class="nav-icon" aria-hidden="true">🎓</span>
+        <span>Formation</span>
+      </a>
+      <a href="#inscription" class="nav-item cta-item">
+        <span class="nav-icon" aria-hidden="true">✍️</span>
+        <span>S'inscrire</span>
+      </a>
+      <a href="#pricing" class="nav-item">
+        <span class="nav-icon" aria-hidden="true">💰</span>
+        <span>Tarifs</span>
+      </a>
+      <a href="https://wa.me/2250701799598?text=Bonjour%2C%20je%20veux%20en%20savoir%20plus%20sur%20Alibaba%20Sans%20Arnaque%20CI" target="_blank" class="nav-item">
+        <span class="nav-icon" aria-hidden="true">💬</span>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ========== MODAL INSCRIPTION ========== -->
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal" id="inscriptionModal" role="dialog" aria-modal="true" aria-label="Formulaire d'inscription">
+      <button class="modal-close" id="modalClose" aria-label="Fermer le formulaire">✕</button>
+      
+      <div class="modal-header">
+        <div class="modal-icon" aria-hidden="true">📝</div>
+        <h3 class="modal-title">Inscris-toi <span>maintenant</span></h3>
+        <p class="modal-subtitle">Remplis ce formulaire rapide et tu seras redirigé(e) vers WhatsApp 💬</p>
+      </div>
+
+      <div class="modal-body">
+        <!-- Step Indicator -->
+        <div class="form-steps-indicator" id="modalFormSteps" aria-label="Progression du formulaire">
+          <div class="form-step-dot active" data-step="1">1</div>
+          <div class="form-step-line" data-line="1"></div>
+          <div class="form-step-dot" data-step="2">2</div>
+          <div class="form-step-line" data-line="2"></div>
+          <div class="form-step-dot" data-step="3">3</div>
+        </div>
+
+        <form id="modalInscriptionForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="modal-nom">Nom *</label>
+              <input type="text" id="modal-nom" name="nom" placeholder="Ex: Koné" required autocomplete="family-name">
+            </div>
+            <div class="form-group">
+              <label for="modal-prenom">Prénom *</label>
+              <input type="text" id="modal-prenom" name="prenom" placeholder="Ex: Aminata" required autocomplete="given-name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="modal-whatsapp">Numéro WhatsApp *</label>
+            <input type="tel" id="modal-whatsapp" name="whatsapp" placeholder="Ex: 07 XX XX XX XX" required autocomplete="tel" inputmode="tel">
+          </div>
+          <div class="form-group">
+            <label for="modal-ville">Ville *</label>
+            <select id="modal-ville" name="ville" required>
+              <option value="">Choisis ta ville</option>
+              <option value="Abidjan">Abidjan</option>
+              <option value="Bouaké">Bouaké</option>
+              <option value="Yamoussoukro">Yamoussoukro</option>
+              <option value="San-Pédro">San-Pédro</option>
+              <option value="Daloa">Daloa</option>
+              <option value="Korhogo">Korhogo</option>
+              <option value="Man">Man</option>
+              <option value="Gagnoa">Gagnoa</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="modal-offre">Offre choisie *</label>
+            <select id="modal-offre" name="offre" required>
+              <option value="">Choisis ton offre</option>
+              <option value="Formation Alibaba - 15 000 FCFA">Formation Alibaba — 15 000 FCFA</option>
+              <option value="Transit uniquement">Transit uniquement</option>
+              <option value="Information Pack Premium">Information sur le Pack Premium</option>
+            </select>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary btn-lg ripple" id="modalSubmitBtn">
+              ✅ Valider mon inscription
+            </button>
+          </div>
+          <p class="form-note">
+            <span class="icon" aria-hidden="true">🔒</span> Tes informations sont confidentielles. Tu seras redirigé(e) vers WhatsApp.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- ========== JAVASCRIPT ========== -->
   <script src="script.js"></script>
