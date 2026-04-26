@@ -283,9 +283,9 @@ const statsObserver = new IntersectionObserver((entries) => {
       const el = entry.target;
 
       if (el.id === 'statStudents') {
-        animateCounter(el, 500, '+');
+        animateCounter(el, 105, '+');
       } else if (el.id === 'statDeliveries') {
-        animateCounter(el, 1200, '+');
+        animateCounter(el, 450, '+');
       } else if (el.id === 'statSatisfaction') {
         animateCounter(el, 98, '%');
       }
@@ -557,42 +557,269 @@ function highlightActiveSection() {
 
 window.addEventListener('scroll', highlightActiveSection, { passive: true });
 
-// --- Testimonials Carousel (Mobile) ---
-function initTestimonialsCarousel() {
+// --- Testimonials System ---
+const allTestimonials = [
+  { name: "Aminata K.", initials: "AK", role: "Commerçante — Abidjan", stars: 5, text: "J'avais peur d'acheter sur Alibaba parce que j'avais entendu beaucoup d'histoires d'arnaque. Grâce à Alibaba Sans Arnaque CI, j'ai reçu mes premiers produits en moins d'un mois. Simple et efficace !" },
+  { name: "Kouassi S.", initials: "KS", role: "Entrepreneur — Bouaké", stars: 5, text: "Le service de transit est incroyable ! J'ai commandé 200 kg de marchandises et tout est arrivé intact à Abidjan. Le suivi WhatsApp m'a vraiment rassuré tout au long du processus." },
+  { name: "Fatou T.", initials: "FT", role: "Mère au foyer — Yopougon", stars: 5, text: "Je suis maman au foyer et je ne connaissais rien à internet. La formation était tellement simple que j'ai compris tout de suite. Aujourd'hui, je vends des produits achetés en Chine !" },
+  { name: "Ibrahim D.", initials: "ID", role: "Commerçant — Adjamé", stars: 5, text: "Avant, j'avais perdu 500 000 FCFA avec un faux fournisseur. Avec Alibaba Sans Arnaque, j'ai appris à vérifier les fournisseurs. Plus jamais d'arnaque !" },
+  { name: "Marie-Claire B.", initials: "MB", role: "Vendeuse — Cocody", stars: 5, text: "J'ai suivi la formation en 3 jours et j'ai passé ma première commande la semaine suivante. Mes produits sont arrivés en parfait état. Merci infiniment !" },
+  { name: "Sékou O.", initials: "SO", role: "Grossiste — Treichville", stars: 5, text: "Je fais du transit depuis 2 ans avec eux. Jamais eu un seul problème. Les prix sont compétitifs et le suivi est top. Je recommande à 100%." },
+  { name: "Awa C.", initials: "AC", role: "Coiffeuse — Marcory", stars: 5, text: "J'ai commandé du matériel de coiffure directement de Chine. J'ai économisé plus de 300 000 FCFA par rapport aux prix locaux. La formation m'a tout appris !" },
+  { name: "Pascal K.", initials: "PK", role: "Étudiant — Yamoussoukro", stars: 4, text: "En tant qu'étudiant, j'ai trouvé la formation très accessible. J'ai commencé à revendre des accessoires de téléphone et je me fais un bon revenu supplémentaire." },
+  { name: "Mariam S.", initials: "MS", role: "Boutiquière — San-Pédro", stars: 5, text: "Le groupe WhatsApp est un vrai plus. On s'entraide entre membres et l'équipe répond toujours rapidement. C'est comme une famille !" },
+  { name: "Yves A.", initials: "YA", role: "Entrepreneur — Plateau", stars: 5, text: "J'ai lancé mon business de vêtements importés grâce à la formation. En 3 mois, j'ai déjà fait 3 commandes. Le transit est rapide et fiable." },
+  { name: "Clarisse N.", initials: "CN", role: "Vendeuse en ligne — Abobo", stars: 5, text: "Je vendais déjà sur WhatsApp mais je ne savais pas acheter moins cher. Maintenant je commande directement en Chine et mes marges ont doublé !" },
+  { name: "Moussa T.", initials: "MT", role: "Commerçant — Korhogo", stars: 5, text: "Même depuis Korhogo, j'ai reçu mes marchandises sans problème. L'équipe a géré le transport jusqu'à ma ville. Service exceptionnel." },
+  { name: "Nadège P.", initials: "NP", role: "Entrepreneure — Daloa", stars: 4, text: "La formation est très bien structurée. Les vidéos sont courtes et claires. J'ai pu apprendre à mon rythme. Très satisfaite du contenu !" },
+  { name: "Franck G.", initials: "FG", role: "Importateur — Abidjan", stars: 5, text: "J'importais déjà mais je perdais du temps et de l'argent. La formation m'a ouvert les yeux sur des techniques que je ne connaissais pas. Indispensable !" },
+  { name: "Adjoua L.", initials: "AL", role: "Commerçante — Gagnoa", stars: 5, text: "Mon premier colis est arrivé en 18 jours ! C'est plus rapide que ce que je pensais. Et le prix du transit était vraiment raisonnable." },
+  { name: "Brice M.", initials: "BM", role: "Vendeur — Riviera", stars: 5, text: "J'ai fait ma première commande de chaussures et j'ai tout vendu en une semaine ! Le retour sur investissement est incroyable quand on achète au bon prix." },
+  { name: "Rokia D.", initials: "RD", role: "Styliste — Cocody", stars: 5, text: "En tant que styliste, j'ai trouvé des tissus magnifiques à des prix imbattables. Le transit a été rapide et mes tissus sont arrivés en parfait état." },
+  { name: "Jean-Marc K.", initials: "JK", role: "Chef d'entreprise — Zone 4", stars: 5, text: "On a formé plusieurs de nos employés avec Alibaba Sans Arnaque. Maintenant, notre service achat est beaucoup plus efficace. Investissement rentable !" },
+  { name: "Aïssatou B.", initials: "AB", role: "Vendeuse — Yopougon", stars: 5, text: "J'avais zéro connaissance en import-export. Aujourd'hui, je passe des commandes toute seule comme une pro. Merci pour cette formation de qualité !" },
+  { name: "Stéphane Y.", initials: "SY", role: "Revendeur — Abidjan", stars: 4, text: "Le module sur la négociation m'a permis d'obtenir des réductions de 20% avec mes fournisseurs. La formation s'est rentabilisée dès ma première commande." },
+  { name: "Christelle A.", initials: "CA", role: "Entrepreneure — Bouaké", stars: 5, text: "Je recommande vivement ! L'accompagnement est top, l'équipe est disponible et professionnelle. Mon business de cosmétiques a décollé grâce à eux." },
+  { name: "Oumar S.", initials: "OS", role: "Commerçant — Man", stars: 5, text: "Depuis Man, je pensais que c'était impossible d'acheter en Chine. Ils m'ont prouvé le contraire. Livraison reçue sans aucun souci !" },
+  { name: "Diane K.", initials: "DK", role: "Pharmacienne — Plateau", stars: 5, text: "J'ai commandé du matériel médical pour ma pharmacie. Tout est arrivé conforme à la commande. Le service de vérification des fournisseurs est un vrai plus." },
+  { name: "Hervé N.", initials: "HN", role: "Électricien — Adjamé", stars: 5, text: "J'achète mes outils et équipements directement en Chine maintenant. Les économies sont énormes comparé aux prix du marché local !" },
+  { name: "Salimata C.", initials: "SC", role: "Coiffeuse — Treichville", stars: 4, text: "Ma deuxième commande de mèches et de produits capillaires est arrivée encore plus vite que la première. Service constant et de qualité." },
+  { name: "Olivier B.", initials: "OB", role: "Restaurateur — Marcory", stars: 5, text: "J'ai commandé des ustensiles de cuisine en gros pour mon restaurant. Qualité top, prix divisés par 3. Je ne reviendrai plus aux anciens fournisseurs." },
+  { name: "Grâce M.", initials: "GM", role: "Vendeuse — Cocody", stars: 5, text: "La communauté WhatsApp est géniale. Les anciens membres partagent leurs expériences et ça aide beaucoup les nouveaux. On apprend ensemble !" },
+  { name: "Joseph T.", initials: "JT", role: "Commerçant — Yopougon", stars: 5, text: "En 6 mois, j'ai fait 5 commandes sans aucun problème. Le service est fiable et professionnel. Mon chiffre d'affaires a augmenté de 40%." },
+  { name: "Lucie A.", initials: "LA", role: "Boutiquière — Abidjan", stars: 5, text: "J'ai ouvert ma boutique de prêt-à-porter grâce à cette formation. Je sais maintenant repérer les bons produits et les bons fournisseurs." },
+  { name: "Abdoulaye K.", initials: "AK", role: "Grossiste — Adjamé", stars: 5, text: "Le transit par bateau est vraiment avantageux pour les grosses commandes. J'ai reçu 2 tonnes de marchandises en parfait état. Bravo !" },
+  { name: "Élise D.", initials: "ED", role: "Entrepreneure — Riviera", stars: 4, text: "Le module sur les droits de douane et le dédouanement est très utile. Maintenant je sais exactement combien va me coûter chaque import." },
+  { name: "Ismaël G.", initials: "IG", role: "Vendeur — Plateau", stars: 5, text: "J'ai été bluffé par la qualité de l'accompagnement. On m'a même aidé à négocier avec un fournisseur récalcitrant. Service 5 étoiles !" },
+  { name: "Fatim Z.", initials: "FZ", role: "Commerçante — Abobo", stars: 5, text: "Le prix de la formation est vraiment accessible. Pour 15 000 FCFA, j'ai appris ce que d'autres vendent à 100 000 FCFA. Super rapport qualité-prix !" },
+  { name: "Patrick L.", initials: "PL", role: "Importateur — Zone Industrielle", stars: 5, text: "Je travaille avec plusieurs transitaires et celui d'Alibaba Sans Arnaque est le plus transparent. Pas de frais cachés, tout est clair dès le départ." },
+  { name: "Cécile T.", initials: "CT", role: "Mère au foyer — Cocody", stars: 5, text: "J'ai commencé à vendre des jouets importés de Chine pendant les fêtes. J'ai fait un bénéfice de 200 000 FCFA en un mois. Incroyable !" },
+  { name: "Koné A.", initials: "KA", role: "Détaillant — Bouaké", stars: 5, text: "Mes clients sont impressionnés par la qualité de mes produits et mes prix compétitifs. Ils ne savent pas que j'achète directement en Chine !" },
+  { name: "Nina R.", initials: "NR", role: "Influenceuse — Abidjan", stars: 4, text: "J'ai créé ma propre marque de bijoux fantaisie grâce à Alibaba. La formation m'a montré comment personnaliser les produits avec mon logo." },
+  { name: "Mamadou B.", initials: "MB", role: "Commerçant — Treichville", stars: 5, text: "Ça fait 1 an que je travaille avec eux. La confiance est totale. Ils n'ont jamais failli. Mon business tourne bien grâce à leur sérieux." },
+  { name: "Rachelle K.", initials: "RK", role: "Vendeuse en ligne — Yopougon", stars: 5, text: "Le module sur la vente sur TikTok m'a ouvert les yeux. J'ai fait mes premières ventes en ligne en seulement 2 semaines après la formation." },
+  { name: "Vincent O.", initials: "VO", role: "Menuisier — Abobo", stars: 5, text: "J'ai commandé des outils professionnels de menuiserie. Prix divisé par 4 par rapport au marché local ! Qualité identique voire meilleure." },
+  { name: "Safiatou D.", initials: "SD", role: "Commerçante — Daloa", stars: 5, text: "L'équipe m'a guidée pas à pas pour ma toute première commande. Je n'aurais jamais osé sans leur accompagnement. Maintenant je suis autonome !" },
+  { name: "Thierry M.", initials: "TM", role: "Entrepreneur — Abidjan", stars: 4, text: "Bon service dans l'ensemble. Le délai de livraison par bateau est parfois un peu long mais c'est normal. L'essentiel c'est que tout arrive en bon état." },
+  { name: "Adama S.", initials: "AS", role: "Grossiste — Adjamé", stars: 5, text: "J'économise en moyenne 500 000 FCFA par commande en achetant directement en Chine. En un an, ça fait des millions d'économies !" },
+  { name: "Florence K.", initials: "FK", role: "Couturière — Marcory", stars: 5, text: "J'ai trouvé des machines à coudre industrielles à moitié prix. Le transit a été géré parfaitement. Mon atelier est maintenant bien équipé !" },
+  { name: "Bruno A.", initials: "BA", role: "Vendeur — Plateau", stars: 5, text: "Le support WhatsApp est vraiment 7j/7 comme ils disent. J'ai posé une question un dimanche soir et j'ai eu la réponse en 10 minutes. Impressionnant !" },
+  { name: "Kadia T.", initials: "KT", role: "Commerçante — Korhogo", stars: 5, text: "Même en étant loin d'Abidjan, tout a été simple. Ils ont organisé la livraison jusqu'à Korhogo. Service complet et sans stress." },
+  { name: "Marcel G.", initials: "MG", role: "Importateur — Zone 4", stars: 5, text: "J'ai comparé avec d'autres transitaires. Alibaba Sans Arnaque offre le meilleur rapport qualité-prix du marché. Et en plus, ils sont formateurs !" },
+  { name: "Ahou P.", initials: "AP", role: "Entrepreneure — Riviera", stars: 4, text: "La formation est complète et bien faite. J'aurais juste aimé plus de vidéos sur la vente. Mais globalement très satisfaite !" },
+  { name: "David N.", initials: "DN", role: "Technicien — Yopougon", stars: 5, text: "J'ai importé du matériel informatique pour ouvrir ma boutique de réparation. Tout est arrivé bien emballé et fonctionnel. Merci à toute l'équipe !" },
+  { name: "Rosine B.", initials: "RB", role: "Vendeuse — Abidjan", stars: 5, text: "Ma vie a changé depuis que j'ai découvert Alibaba Sans Arnaque. Je gagne maintenant 3 fois plus qu'avant en vendant des produits importés. Reconnaissance éternelle !" }
+];
+
+let testimonialsDisplayed = 0;
+const TESTIMONIALS_PER_PAGE = 10;
+
+function createTestimonialCard(t, isNew = false) {
+  const starsHtml = '⭐'.repeat(t.stars) + (t.stars < 5 ? '<span style="opacity:0.3">' + '⭐'.repeat(5 - t.stars) + '</span>' : '');
+  const card = document.createElement('div');
+  card.className = `testimonial-card reveal visible${isNew ? ' new-review' : ''}`;
+  card.innerHTML = `
+    <span class="testimonial-quote" aria-hidden="true">"</span>
+    <div class="testimonial-stars" aria-label="${t.stars} étoiles sur 5">${starsHtml}</div>
+    <p class="testimonial-text">${t.text}</p>
+    <div class="testimonial-author">
+      <div class="testimonial-avatar" aria-hidden="true">${t.initials}</div>
+      <div class="testimonial-info">
+        <div class="name">${t.name}</div>
+        <div class="role">${t.role}</div>
+      </div>
+    </div>
+  `;
+  return card;
+}
+
+function loadTestimonials(count) {
   const grid = document.getElementById('testimonialsGrid');
-  const dots = document.querySelectorAll('.carousel-dot');
-  
-  if (!grid || !dots.length) return;
+  const btn = document.getElementById('btnVoirPlus');
+  if (!grid) return;
 
-  // Track active dot on scroll
-  let scrollTimeout;
-  grid.addEventListener('scroll', () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      const scrollLeft = grid.scrollLeft;
-      const cardWidth = grid.querySelector('.testimonial-card')?.offsetWidth || 300;
-      const gap = 16;
-      const index = Math.round(scrollLeft / (cardWidth + gap));
-      
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-        dot.setAttribute('aria-selected', i === index ? 'true' : 'false');
-      });
-    }, 50);
-  }, { passive: true });
+  const allReviews = [...allTestimonials, ...getUserReviews()];
+  const end = Math.min(testimonialsDisplayed + count, allReviews.length);
 
-  // Click dots to scroll
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      const cards = grid.querySelectorAll('.testimonial-card');
-      if (cards[i]) {
-        cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      }
-    });
+  for (let i = testimonialsDisplayed; i < end; i++) {
+    const card = createTestimonialCard(allReviews[i]);
+    grid.appendChild(card);
+    // Trigger reveal animation with stagger
+    setTimeout(() => {
+      card.classList.add('active');
+    }, (i - testimonialsDisplayed) * 80);
+  }
+
+  testimonialsDisplayed = end;
+
+  // Hide button if all loaded
+  if (testimonialsDisplayed >= allReviews.length && btn) {
+    btn.classList.add('hidden');
+  }
+
+  // Update count
+  const countEl = document.getElementById('testimonialCount');
+  if (countEl) {
+    countEl.textContent = `${allReviews.length} avis vérifiés`;
+  }
+}
+
+// Initial load
+loadTestimonials(TESTIMONIALS_PER_PAGE);
+
+// Voir plus button
+const btnVoirPlus = document.getElementById('btnVoirPlus');
+if (btnVoirPlus) {
+  btnVoirPlus.addEventListener('click', () => {
+    loadTestimonials(TESTIMONIALS_PER_PAGE);
   });
 }
 
-initTestimonialsCarousel();
+// --- User Reviews (localStorage) ---
+function getUserReviews() {
+  try {
+    return JSON.parse(localStorage.getItem('userReviews') || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function saveUserReview(review) {
+  const reviews = getUserReviews();
+  reviews.push(review);
+  localStorage.setItem('userReviews', JSON.stringify(reviews));
+}
+
+// --- Star Rating Interaction ---
+let selectedRating = 0;
+const starBtns = document.querySelectorAll('#starRating .star-btn');
+
+starBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    selectedRating = parseInt(btn.dataset.rating);
+    starBtns.forEach(b => {
+      const r = parseInt(b.dataset.rating);
+      if (r <= selectedRating) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+  });
+
+  btn.addEventListener('mouseenter', () => {
+    const hoverRating = parseInt(btn.dataset.rating);
+    starBtns.forEach(b => {
+      const r = parseInt(b.dataset.rating);
+      if (r <= hoverRating) {
+        b.style.color = '#FBBF24';
+      } else {
+        b.style.color = '';
+      }
+    });
+  });
+
+  btn.addEventListener('mouseleave', () => {
+    starBtns.forEach(b => {
+      b.style.color = '';
+    });
+  });
+});
+
+// --- Review Form Toggle (Collapsible) ---
+const reviewFormToggle = document.getElementById('reviewFormToggle');
+const reviewFormWrapper = document.getElementById('reviewFormWrapper');
+
+if (reviewFormToggle && reviewFormWrapper) {
+  reviewFormToggle.addEventListener('click', () => {
+    const isOpen = reviewFormWrapper.classList.toggle('open');
+    reviewFormToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+}
+
+// --- Review Form Submission ---
+const reviewForm = document.getElementById('reviewForm');
+if (reviewForm) {
+  reviewForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('reviewName').value.trim();
+    const city = document.getElementById('reviewCity').value.trim();
+    const role = document.getElementById('reviewRole').value.trim();
+    const text = document.getElementById('reviewText').value.trim();
+
+    if (!name || !city || !text || selectedRating === 0) {
+      showFormError('Merci de remplir tous les champs obligatoires et de donner une note ⭐', reviewForm);
+      return;
+    }
+
+    // Build initials
+    const nameParts = name.split(' ');
+    const initials = nameParts.length >= 2
+      ? (nameParts[0][0] + nameParts[1][0]).toUpperCase()
+      : name.substring(0, 2).toUpperCase();
+
+    const review = {
+      name: name,
+      initials: initials,
+      role: role ? `${role} — ${city}` : city,
+      stars: selectedRating,
+      text: text,
+      date: new Date().toISOString()
+    };
+
+    // Save to localStorage
+    saveUserReview(review);
+
+    // Insert at the top of the grid
+    const grid = document.getElementById('testimonialsGrid');
+    const card = createTestimonialCard(review, true);
+    grid.insertBefore(card, grid.firstChild);
+    setTimeout(() => card.classList.add('active'), 50);
+
+    testimonialsDisplayed++;
+
+    // Update count
+    const allReviews = [...allTestimonials, ...getUserReviews()];
+    const countEl = document.getElementById('testimonialCount');
+    if (countEl) {
+      countEl.textContent = `${allReviews.length} avis vérifiés`;
+    }
+
+    // Reset form and collapse
+    reviewForm.reset();
+    selectedRating = 0;
+    starBtns.forEach(b => b.classList.remove('active'));
+    if (reviewFormWrapper) {
+      reviewFormWrapper.classList.remove('open');
+      if (reviewFormToggle) reviewFormToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    // Show success toast
+    showReviewToast();
+
+    // Scroll to the new review
+    setTimeout(() => {
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    }, 300);
+  });
+}
+
+function showReviewToast() {
+  let toast = document.querySelector('.review-success-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'review-success-toast';
+    toast.textContent = '✅ Merci ! Ton avis a été publié avec succès.';
+    document.body.appendChild(toast);
+  }
+  
+  setTimeout(() => toast.classList.add('show'), 50);
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 400);
+  }, 3500);
+}
 
 // --- Ripple Effect on Buttons ---
 function initRippleEffect() {

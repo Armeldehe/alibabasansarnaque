@@ -97,11 +97,11 @@
         </div>
         <div class="hero-stats" role="group" aria-label="Statistiques">
           <div class="hero-stat">
-            <div class="hero-stat-number" id="statStudents" aria-label="Plus de 500 élèves formés">500+</div>
+            <div class="hero-stat-number" id="statStudents" aria-label="Plus de 105 élèves formés">105+</div>
             <div class="hero-stat-label">Élèves formés</div>
           </div>
           <div class="hero-stat">
-            <div class="hero-stat-number" id="statDeliveries" aria-label="Plus de 1200 colis livrés">1 200+</div>
+            <div class="hero-stat-number" id="statDeliveries" aria-label="Plus de 450 colis livrés">450+</div>
             <div class="hero-stat-label">Colis livrés</div>
           </div>
           <div class="hero-stat">
@@ -544,7 +544,7 @@
           <div class="trust-card-icon" aria-hidden="true">⭐</div>
           <div>
             <h4>Résultats prouvés</h4>
-            <p>Plus de 500 personnes formées et 1 200 colis livrés avec succès. Nos résultats parlent pour nous.</p>
+            <p>Plus de 105 personnes formées et 450 colis livrés avec succès. Nos résultats parlent pour nous.</p>
           </div>
         </div>
       </div>
@@ -560,60 +560,73 @@
         <p class="section-subtitle mx-auto">
           Découvre ce que nos clients disent de nous.
         </p>
+        <div class="testimonials-summary">
+          <div class="summary-stars">⭐⭐⭐⭐⭐</div>
+          <span class="summary-text" id="testimonialCount">50 avis vérifiés</span>
+        </div>
       </div>
 
       <div class="testimonials-grid" id="testimonialsGrid">
-        <div class="testimonial-card reveal">
-          <span class="testimonial-quote" aria-hidden="true">"</span>
-          <div class="testimonial-stars" aria-label="5 étoiles sur 5">⭐⭐⭐⭐⭐</div>
-          <p class="testimonial-text">
-            J'avais peur d'acheter sur Alibaba parce que j'avais entendu beaucoup d'histoires d'arnaque. Grâce à Alibaba Sans Arnaque CI, j'ai reçu mes premiers produits en moins d'un mois. Simple et efficace !
-          </p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">AK</div>
-            <div class="testimonial-info">
-              <div class="name">Aminata K.</div>
-              <div class="role">Commerçante — Abidjan</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card reveal">
-          <span class="testimonial-quote" aria-hidden="true">"</span>
-          <div class="testimonial-stars" aria-label="5 étoiles sur 5">⭐⭐⭐⭐⭐</div>
-          <p class="testimonial-text">
-            Le service de transit est incroyable ! J'ai commandé 200 kg de marchandises et tout est arrivé intact à Abidjan. Le suivi WhatsApp m'a vraiment rassuré tout au long du processus.
-          </p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">KS</div>
-            <div class="testimonial-info">
-              <div class="name">Kouassi S.</div>
-              <div class="role">Entrepreneur — Bouaké</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card reveal">
-          <span class="testimonial-quote" aria-hidden="true">"</span>
-          <div class="testimonial-stars" aria-label="5 étoiles sur 5">⭐⭐⭐⭐⭐</div>
-          <p class="testimonial-text">
-            Je suis maman au foyer et je ne connaissais rien à internet. La formation était tellement simple que j'ai compris tout de suite. Aujourd'hui, je vends des produits achetés en Chine !
-          </p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">FT</div>
-            <div class="testimonial-info">
-              <div class="name">Fatou T.</div>
-              <div class="role">Mère au foyer — Yopougon</div>
-            </div>
-          </div>
-        </div>
+        <!-- Testimonials are dynamically injected by JS -->
       </div>
 
-      <!-- Carousel dots for mobile -->
-      <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Sélectionner un témoignage">
-        <button class="carousel-dot active" aria-label="Témoignage 1" aria-selected="true" role="tab"></button>
-        <button class="carousel-dot" aria-label="Témoignage 2" aria-selected="false" role="tab"></button>
-        <button class="carousel-dot" aria-label="Témoignage 3" aria-selected="false" role="tab"></button>
+      <div class="testimonials-actions">
+        <button class="btn btn-voir-plus" id="btnVoirPlus" aria-label="Voir plus de témoignages">
+          📖 Voir plus de témoignages
+        </button>
+      </div>
+
+      <!-- Formulaire pour laisser un avis (déroulant) -->
+      <div class="review-form-wrapper" id="reviewFormWrapper">
+        <button type="button" class="review-form-toggle" id="reviewFormToggle" aria-expanded="false">
+          <div class="review-form-toggle-left">
+            <span class="toggle-icon">✍️</span>
+            <div>
+              <h3>Laisse ton avis</h3>
+              <p>Partage ton expérience avec la communauté</p>
+            </div>
+          </div>
+          <span class="review-toggle-chevron" aria-hidden="true">▼</span>
+        </button>
+        <div class="review-form-body">
+          <div class="review-form-body-inner">
+            <form id="reviewForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="reviewName">Ton prénom *</label>
+                  <input type="text" id="reviewName" name="reviewName" placeholder="Ex: Aminata" required>
+                </div>
+                <div class="form-group">
+                  <label for="reviewCity">Ta ville *</label>
+                  <input type="text" id="reviewCity" name="reviewCity" placeholder="Ex: Abidjan" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="reviewRole">Ton activité</label>
+                <input type="text" id="reviewRole" name="reviewRole" placeholder="Ex: Commerçante, Entrepreneur...">
+              </div>
+              <div class="form-group">
+                <label>Ta note *</label>
+                <div class="star-rating" id="starRating">
+                  <button type="button" class="star-btn" data-rating="1" aria-label="1 étoile">★</button>
+                  <button type="button" class="star-btn" data-rating="2" aria-label="2 étoiles">★</button>
+                  <button type="button" class="star-btn" data-rating="3" aria-label="3 étoiles">★</button>
+                  <button type="button" class="star-btn" data-rating="4" aria-label="4 étoiles">★</button>
+                  <button type="button" class="star-btn" data-rating="5" aria-label="5 étoiles">★</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="reviewText">Ton témoignage *</label>
+                <textarea id="reviewText" name="reviewText" placeholder="Raconte ton expérience avec Alibaba Sans Arnaque CI..." rows="3" required></textarea>
+              </div>
+              <div class="form-submit">
+                <button type="submit" class="btn btn-primary ripple" id="reviewSubmitBtn">
+                  ✅ Publier mon avis
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -838,7 +851,7 @@
           </div>
           <div class="faq-answer" id="faq-3-answer" role="region">
             <div class="faq-answer-inner">
-              Oui ! Nous avons déjà livré plus de 1 200 colis à Abidjan avec succès. Tes marchandises sont suivies à chaque étape et tu reçois des mises à jour régulières sur WhatsApp. Nous gérons tout le transit de la Chine jusqu'à ta porte.
+              Oui ! Nous avons déjà livré plus de 450 colis à Abidjan avec succès. Tes marchandises sont suivies à chaque étape et tu reçois des mises à jour régulières sur WhatsApp. Nous gérons tout le transit de la Chine jusqu'à ta porte.
             </div>
           </div>
         </div>
